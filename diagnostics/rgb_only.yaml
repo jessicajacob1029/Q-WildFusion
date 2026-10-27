@@ -1,0 +1,6 @@
+path: /Users/test/Q-WildFusion/phase3/dataset_aligned
+train: images/rgb/train
+val: images/rgb/val
+
+nc: 1
+names: [person]

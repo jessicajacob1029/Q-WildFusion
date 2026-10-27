@@ -1,0 +1,9 @@
+250097.jpg -- Grad-CAM paper figure (17.5 x 8.8 cm).
+Rows: Full model (complete), Fusion baseline (CBAM + add), Thermal-only YOLO11n, RGB-only YOLO11n; seed 0, last.pt (EMA, epoch 12).
+Columns: RGB input | IR input | RGB features | Thermal features | Neck output | Detections. Features = post-attention backbone features entering fusion (single-modality baselines: backbone layers 4/6/10 in their own modality's column); Neck output = Detect inputs; each the sum of the P3/P4/P5 Grad-CAMs, from the saved 1/4-resolution maps upsampled to 768x960.
+Grad-CAM target: sum of person scores of raw pre-NMS predictions with conf>=0.25 and IoU>=0.5 to a GT box.
+Colour scales per row: one for RGB + Thermal features, one for Neck output (fused column dropped, so the feature scale is the max over the two feature panels shown). Ranges [min, max]:
+  Full model                         features [0, 0.005512]   neck [0, 0.0112]   target preds=11  dets=1  GT=3
+  Fusion baseline (CBAM + add)       features [0, 0.003799]   neck [0, 0.006194]   target preds=27  dets=3  GT=3
+  Thermal-only YOLO11n               features [0, 0.01167]   neck [0, 0.01144]   target preds=16  dets=3  GT=3
+  RGB-only YOLO11n                   features [0, 0.02964]   neck [0, 0.008838]   target preds=23  dets=3  GT=3

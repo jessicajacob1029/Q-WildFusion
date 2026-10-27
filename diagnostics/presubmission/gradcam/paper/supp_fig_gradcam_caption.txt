@@ -1,0 +1,67 @@
+Supplementary figure, Grad-CAM: one page per image (12 val images: 9 seeded random draws + 3 miss cases, see selection.json), in selection order.
+Rows: Full model, Fusion baseline (CBAM + add), Thermal-only YOLO11n, RGB-only YOLO11n (seed 0, last.pt = EMA, epoch 12). Columns: RGB input | IR input | RGB features | Thermal features | Fused features | Neck output | Detections.
+Features = post-attention backbone features entering fusion (single-modality baselines: backbone layers 4/6/10 in their own modality's column); Fused = fusion output; Neck output = Detect inputs. Each map is the sum of the P3/P4/P5 maps, from the saved 1/4-resolution maps upsampled to 768x960.
+Grad-CAM target: sum of person scores of raw pre-NMS predictions with conf>=0.25 and IoU>=0.5 to a GT box; 'No qualifying prediction' = no such prediction, so Grad-CAM is undefined for that row.
+Detections: NMS conf>=0.25, IoU 0.7 (red dashed); GT green.
+Colour scales per row: one shared by RGB / Thermal / Fused features, one for Neck output. Ranges [min, max]:
+
+150136 (random)
+  Full model                     features [0, 0.00156]   neck [0, 0.001054]
+  Fusion baseline (CBAM + add)   features [0, 0.00144]   neck [0, 0.001158]
+  Thermal-only YOLO11n           features [0, 0.0008899]   neck [0, 0.0008496]
+  RGB-only YOLO11n               features [0, 0.00418]   neck [0, 0.0005405]
+150202 (random)
+  Full model                     features [0, 0.003287]   neck [0, 0.00389]
+  Fusion baseline (CBAM + add)   features [0, 0.002268]   neck [0, 0.000639]
+  Thermal-only YOLO11n           features [0, 0.003608]   neck [0, 0.001733]
+  RGB-only YOLO11n               features [0, 0.009855]   neck [0, 0.003445]
+150281 (random)
+  Full model                     features [0, 0.002025]   neck [0, 0.001697]
+  Fusion baseline (CBAM + add)   features [0, 0.003096]   neck [0, 0.0008659]
+  Thermal-only YOLO11n           features [0, 0.001882]   neck [0, 0.001009]
+  RGB-only YOLO11n               features [0, 0.003874]   neck [0, 0.0009446]
+150519 (random)
+  Full model                     features [0, 0.00397]   neck [0, 0.002042]
+  Fusion baseline (CBAM + add)   features [0, 0.001647]   neck [0, 0.001659]
+  Thermal-only YOLO11n           features [0, 0.002195]   neck [0, 0.001825]
+  RGB-only YOLO11n               features [0, 0.01858]   neck [0, 0.005386]
+160138 (random)
+  Full model                     features [0, 0.001366]   neck [0, 0.000747]
+  Fusion baseline (CBAM + add)   features [0, 0.001353]   neck [0, 0.001991]
+  Thermal-only YOLO11n           features [0, 0.003925]   neck [0, 0.002241]
+  RGB-only YOLO11n               features [0, 0.0119]   neck [0, 0.002934]
+160235 (random)
+  Full model                     features [0, 0.003701]   neck [0, 0.001645]
+  Fusion baseline (CBAM + add)   features [0, 0.0006234]   neck [0, 0.0006317]
+  Thermal-only YOLO11n           features [0, 0.001949]   neck [0, 0.0009033]
+  RGB-only YOLO11n               features [0, 0.002622]   neck [0, 0.0005395]
+170153 (random)
+  Full model                     features [0, 0.001197]   neck [0, 0.003101]
+  Fusion baseline (CBAM + add)   features [0, 0.0009079]   neck [0, 0.002198]
+  Thermal-only YOLO11n           features [0, 0.001953]   neck [0, 0.001473]
+  RGB-only YOLO11n               features [0, 0.001937]   neck [0, 0.001851]
+170467 (random)
+  Full model                     features [0, 0.00232]   neck [0, 0.0007876]
+  Fusion baseline (CBAM + add)   features [0, 0.005525]   neck [0, 0.003342]
+  Thermal-only YOLO11n           features [0, 0.004081]   neck [0, 0.003651]
+  RGB-only YOLO11n               features [0, 0.003542]   neck [0, 0.001404]
+250060 (random)
+  Full model                     features [0, 0.001413]   neck [0, 0.001685]
+  Fusion baseline (CBAM + add)   features [0, 0.001691]   neck [0, 0.001378]
+  Thermal-only YOLO11n           features [0, 0.001691]   neck [0, 0.001796]
+  RGB-only YOLO11n               features n/a   neck n/a
+170272 (miss case)
+  Full model                     features [0, 0.004541]   neck [0, 0.004419]
+  Fusion baseline (CBAM + add)   features [0, 0.001409]   neck [0, 0.003719]
+  Thermal-only YOLO11n           features [0, 0.006928]   neck [0, 0.00242]
+  RGB-only YOLO11n               features n/a   neck n/a
+180071 (miss case)
+  Full model                     features [0, 0.004558]   neck [0, 0.004164]
+  Fusion baseline (CBAM + add)   features [0, 0.004964]   neck [0, 0.01836]
+  Thermal-only YOLO11n           features [0, 0.01874]   neck [0, 0.004782]
+  RGB-only YOLO11n               features [0, 0.02568]   neck [0, 0.01149]
+250097 (miss case)
+  Full model                     features [0, 0.005914]   neck [0, 0.0112]
+  Fusion baseline (CBAM + add)   features [0, 0.004529]   neck [0, 0.006194]
+  Thermal-only YOLO11n           features [0, 0.01167]   neck [0, 0.01144]
+  RGB-only YOLO11n               features [0, 0.02964]   neck [0, 0.008838]

@@ -1,0 +1,7 @@
+path: /Users/test/Q-WildFusion/diagnostics/presubmission/data/baseline_ir
+train: images/train
+val: images/val
+nc: 1
+channels: 3
+names:
+  - human

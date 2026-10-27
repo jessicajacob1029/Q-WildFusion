@@ -1,0 +1,10 @@
+150281.jpg -- Grad-CAM (random draw (seed 0))
+Rows: complete, cbam_add, baseline_thermal, baseline_rgb (seed 0, last.pt = EMA, epoch 12). Input as validation: 768x960, RGB 3ch, IR 1ch replicated to 3ch, [0,1]; fusion models via the paired (RGB, IR) path.
+Columns: RGB input | IR input | RGB-branch CAM | IR-branch CAM | fused CAM | neck->Detect CAM | detections. Branch CAMs = post-attention features entering the fusion module; fused = fusion output; neck = Detect inputs; each the sum of P3/P4/P5 CAMs bilinearly upsampled to 768x960. Baselines: backbone layers 4/6/10 (10 = last backbone stage) in their own modality column.
+Grad-CAM target: sum of person scores of raw pre-NMS predictions with conf>=0.25 and IoU>=0.5 to a GT box.
+Detections: NMS conf>=0.25, IoU 0.7 (red dashed, with score); GT boxes green.
+Colour ranges per row [min, max]:
+  complete          branch/fused [0, 0.002092]   neck [0, 0.001894]   target preds=9  dets=1  GT=2
+  cbam_add          branch/fused [0, 0.003147]   neck [0, 0.001013]   target preds=14  dets=3  GT=2
+  baseline_thermal  branch/fused [0, 0.0019]   neck [0, 0.001058]   target preds=10  dets=1  GT=2
+  baseline_rgb      branch/fused [0, 0.003887]   neck [0, 0.001016]   target preds=10  dets=1  GT=2

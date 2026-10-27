@@ -1,0 +1,8 @@
+path: /Users/test/Q-WildFusion/diagnostics/presubmission/data/fusion
+train: images/rgb/train
+val: images/rgb/val
+ir: /Users/test/Q-WildFusion/phase3/dataset_aligned/images/ir
+nc: 1
+channels: 3
+names:
+  - human

@@ -1,0 +1,12 @@
+path: /Users/test/Q-WildFusion/phase3/dataset
+
+train:
+  - images/rgb/train
+  - images/ir/train
+
+val:
+  - images/rgb/val
+  - images/ir/val
+
+nc: 1
+names: ["person"]
